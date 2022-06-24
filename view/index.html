@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                                            <input v-model="passinput" type="password" class="form-control" id="exampleInputPassword1" placeholder="Type your password">
+                                            <input v-model="passinput" @keyup.enter="login" type="password" class="form-control" id="exampleInputPassword1" placeholder="Type your password">
                                         </div>
                                         <div class="row">
                                             <a class="col-4 btn btn-dark logbtn" :href="href"  @click="login">Login</a>
