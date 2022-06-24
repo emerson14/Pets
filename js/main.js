@@ -40,7 +40,7 @@ var app = new Vue({
         },
         mensaje: function (msj, icono) {
             Swal.fire({
-            position: 'top-end',
+            position: 'top-center',
             icon: icono,
             title: msj,
             showConfirmButton: false,
