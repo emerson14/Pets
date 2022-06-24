@@ -13,7 +13,7 @@ var app = new Vue({
         userinput: '',
         passinput: '',
         href: '#',
-        pos: '',
+        pos: 0,//change it to '' when the app.js is ready
     },
     methods: {
         login(){
