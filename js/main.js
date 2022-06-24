@@ -10,6 +10,10 @@ var app = new Vue({
         pets: [
             {id: 1, name: 'Pipo', race: 'Creole', age: 1, status: false}
         ],
+        nameDog: '',
+        raceDog: '',
+        fileDog: '',
+
         userinput: '',
         passinput: '',
         href: '#',

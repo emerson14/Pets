@@ -56,81 +56,54 @@
                 </div>
             </div>
             <div class="col-md-5 col-lg-5 mt-3 mb-4">
-                <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion2-table">
+                <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
                     <img src="/Pets/images/adoptar2.jpg" class="card-img-top" alt="hb4">
                     <div class="card-body">
                         <h5 class="card-title text-center">Dar En Adopcion</h5>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- modal formulario dar en adopcion -->
-        <section>
-            <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <button @click="closelogin" type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
-                            <button @click="logout" type="button" class="btn btn-dark" v-if="modaltrigger === 1"><i class="fa-solid fa-right-from-bracket"></i></button>
-                        </div>
-                        <div class="modal-body" v-if="modaltrigger === 0">
-                            <div class="sigIn-formulario text-center" >
-                                <h1 class="sigIn-title mb-3">Hot Durger's</h1>
-                                <img src="assets/images/l1.png" alt="Icono" class="sigIn-Icon ">
-                                <div class="form-floating mb-4">
-                                    <input v-model="userinput" @keyup.enter="login" type="text"  class="form-control" id="floatingUser" required>
-                                    <label for="floatingUser">USUARIO</label>
-                                </div>
-                                <div class="form-floating mb-4">
-                                    <input v-model="passinput" @keyup.enter="login" type="password" maxlength="8" minlength="8" class="form-control" id="floatingPassword" required>
-                                    <label for="floatingPassword">CONTRASEÑA</label>
-                                    <span v-if="logspan === 1"><strong class="text-danger">USUARIO Y O CONTRASEÑA INCORRECTOS</strong></span>
-                                    <span v-if="logspan === 2"><strong class="text-danger">POR FAVOR INGRESE UN USUARIO Y CONTRASEÑA</strong></span>
-                                </div>
+        </div>     
+        </section>    
+        <!-- Modal dar en adopción-->
+        <div class="modal fade" id="modalAdopcion" tabindex="-1" aria-labelledby="modalAdopcion" aria-hidden="true">
+            <div class="modal-dialog modal-sm"">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos de la mascota</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de mascota</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Seleccione una opción</option>
+                                    <option value="1">Perro</option>
+                                    <option value="2">Gato</option>
+                                </select>
                             </div>
-                        </div>
-                        <!-- cards log in -->
-                        <div class="modal-body" v-if="modaltrigger === 1">
-                            <h5 class="text-center"><strong></strong></h5>
-
-                            <div class="row">
-                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
-                                    <div class="card" data-bs-toggle="modal" data-bs-target="#chef-table">
-                                        <img src="./assets/images/chef.jpg" class="card-img-top" alt="hb4">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">CHEF</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
-                                    <div class="card" data-bs-toggle="modal" data-bs-target="#waiter-table">
-                                        <img src="./assets/images/mesero.jpg" class="card-img-top" alt="hb4">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">MESERO</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
-                                    <div class="card" data-bs-toggle="modal" data-bs-target="#admin-table">
-                                        <img src="./assets/images/administrador.jpg" class="card-img-top" alt="hb4">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">ADMIN</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <label for="nameDog" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="" placeholder="Ingrese nombre" v-model="nameDog">
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button @click="login" type="button" v-if="modaltrigger === 0"><strong>INGRESAR</strong></button>
-                        </div>
+                            <div class="mb-3">
+                                <label for="raceDog" class="form-label">Raza</label>
+                                <input type="text" class="form-control" id="" placeholder="Ingrese raza" v-model="raceDog">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fileDog" class="form-label">Foto del perro</label>
+                                <input class="form-control" type="file" id="fileDog" v-model="fileDog">
+                              </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
-        <!-- fin modal formulario adopcion -->
-    </section>
-        </section>
-    </main>
-    
+        </div>
         <!-- FOOTER -->
         <footer id="footer" class="pb-4 pt-4">
             <div class="container">
