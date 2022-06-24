@@ -28,14 +28,14 @@ var app = new Vue({
                     this.newArrUsers[index].token = true;
                     this.updateLocalStorage();
                     // alert('Valid user!');
-                    this.mensaje("poner texto", "success");
+                    this.mensaje("Ingresa los datos", "success");
                 }else{
                     // alert('Invalid password or email');
-                    this.mensaje("poner texto", "error");
+                    this.mensaje("ingresa los datos", "error");
                 }
             }else{
                 // alert('An email and password must be provided');
-                this.mensaje("poner texto", "error");
+                this.mensaje("ingresa los datos", "error");
             }
         },
         mensaje: function (msj, icono) {
