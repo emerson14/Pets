@@ -27,13 +27,25 @@ var app = new Vue({
                     this.href = 'app.html'
                     this.newArrUsers[index].token = true;
                     this.updateLocalStorage();
-                    alert('Valid user!');
+                    // alert('Valid user!');
+                    this.mensaje("poner texto", "success");
                 }else{
-                    alert('Invalid password or email');
+                    // alert('Invalid password or email');
+                    this.mensaje("poner texto", "error");
                 }
             }else{
-                alert('An email and password must be provided');
+                // alert('An email and password must be provided');
+                this.mensaje("poner texto", "error");
             }
+        },
+        mensaje: function (msj, icono) {
+            Swal.fire({
+            position: 'top-end',
+            icon: icono,
+            title: msj,
+            showConfirmButton: false,
+            timer: 1500
+            })
         },
         listData(){
             this.newArrUsers = this.users;
