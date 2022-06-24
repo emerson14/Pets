@@ -58,6 +58,50 @@
             </div>
         </div>
         </section>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
+            Launch demo modal
+        </button>
+        
+        <!-- Modal dar en adopción-->
+        <div class="modal fade" id="modalAdopcion" tabindex="-1" aria-labelledby="modalAdopcion" aria-hidden="true">
+            <div class="modal-dialog modal-sm"">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos de la mascota</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de mascota</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Seleccione una opción</option>
+                                    <option value="1">Perro</option>
+                                    <option value="2">Gato</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nameDog" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="" placeholder="Ingrese nombre" v-model="nameDog">
+                            </div>
+                            <div class="mb-3">
+                                <label for="raceDog" class="form-label">Raza</label>
+                                <input type="text" class="form-control" id="" placeholder="Ingrese raza" v-model="raceDog">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fileDog" class="form-label">Foto del perro</label>
+                                <input class="form-control" type="file" id="fileDog" v-model="fileDog">
+                              </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- FOOTER -->
         <footer id="footer" class="pb-4 pt-4">
             <div class="container">
