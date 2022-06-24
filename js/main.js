@@ -4,7 +4,7 @@ var app = new Vue({
     el: '#app',
     data: {
         users: [
-            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: false},
+            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: true},//change the token to false when you're working into app.html
         ],
         newArrUsers: [],
         pets: [
