@@ -24,10 +24,10 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="app.html">Inicio</a>
+                                    <a class="nav-link active" aria-current="page" href="app.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="app.html">Inicio</a>
+                                    <a class="nav-link active" aria-current="page" href="app.html">cerrar sesion</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="app.html">Inicio</a>
@@ -38,28 +38,57 @@
                 </nav>
             </header>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h5 class="modal-title text-center" id="exampleModalLabel">Modal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        <section class="cards-menu">
+        <div class="row">
+            <div class="col-md-5 col-lg-5 mt-3 mb-4">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
+                    <img src="/Pets/images/adoptar1.jpg" class="card-img-top" alt="hb4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Adoptar</h5>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Nombre</label>
-                              <input type="text"class="col-md-12"class="form control"placeholder="ingrese nombre" v-model="name">
-                            </div>
-             
-                          </form>                    
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-5 mt-3 mb-4">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#adopcion2-table">
+                    <img src="/Pets/images/adopcion2.jpg" class="card-img-top" alt="hb4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Dar En Adopcion</h5>
                     </div>
                 </div>
             </div>
         </div>
+        </section>
+        <!-- FOOTER -->
+        <footer id="footer" class="pb-4 pt-4">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12 col-lg col-md">
+                        <a href="#">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="col-12 col-lg col-md">
+                        <a href="#">Contáctanos</a>
+                    </div>
+                    <div class="col-12 col-lg col-md">
+                        <a href="#">Novedades</a>
+                    </div>
+                    <div class="col-12 col-lg col-md">
+                        <a href="#">Privacidad</a>
+                    </div>
+                    <div class="col-12 col-lg col-md">
+                        <a href="#">Productos</a>
+                    </div>
+                    <div class="col-12 col-lg col-md">
+                        <h6 class="text-center mt-2 mb-2">
+                            Siguenos: 
+                            <a href="#"><i class="fab fa-instagram-square"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <h6 class="text-center mt-4">© Copyright - All rights reserved</h6>
+                <h6 class="text-center mt-4">Pets</h6>
+            </div>
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
     <script src="../js/vue.js"></script>
