@@ -20,9 +20,13 @@
                 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container">
                         <a class="navbar-brand" href="index.html">
+                            
                         </a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
+                            <ul class="navbar-nav mr-auto ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item ">
+                                    <a class="nav-link active" aria-current="page" href="app.html">Hola"Usuario"</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="app.html">Home</a>
                                 </li>
@@ -37,11 +41,14 @@
                     </div>
                 </nav>
             </header>
+            <main>
+
+           <h1 class="menu-title">PETS</h1>
         </div>
         <section class="cards-menu">
         <div class="row">
             <div class="col-md-5 col-lg-5 mt-3 mb-4">
-                <div class="card" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
+                <div class="card " id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
                     <img src="/Pets/images/adoptar1.jpg" class="card-img-top" alt="hb4">
                     <div class="card-body">
                         <h5 class="card-title text-center">Adoptar</h5>
@@ -49,15 +56,81 @@
                 </div>
             </div>
             <div class="col-md-5 col-lg-5 mt-3 mb-4">
-                <div class="card" data-bs-toggle="modal" data-bs-target="#adopcion2-table">
-                    <img src="/Pets/images/adopcion2.jpg" class="card-img-top" alt="hb4">
+                <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion2-table">
+                    <img src="/Pets/images/adoptar2.jpg" class="card-img-top" alt="hb4">
                     <div class="card-body">
                         <h5 class="card-title text-center">Dar En Adopcion</h5>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- modal formulario dar en adopcion -->
+        <section>
+            <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <button @click="closelogin" type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                            <button @click="logout" type="button" class="btn btn-dark" v-if="modaltrigger === 1"><i class="fa-solid fa-right-from-bracket"></i></button>
+                        </div>
+                        <div class="modal-body" v-if="modaltrigger === 0">
+                            <div class="sigIn-formulario text-center" >
+                                <h1 class="sigIn-title mb-3">Hot Durger's</h1>
+                                <img src="assets/images/l1.png" alt="Icono" class="sigIn-Icon ">
+                                <div class="form-floating mb-4">
+                                    <input v-model="userinput" @keyup.enter="login" type="text"  class="form-control" id="floatingUser" required>
+                                    <label for="floatingUser">USUARIO</label>
+                                </div>
+                                <div class="form-floating mb-4">
+                                    <input v-model="passinput" @keyup.enter="login" type="password" maxlength="8" minlength="8" class="form-control" id="floatingPassword" required>
+                                    <label for="floatingPassword">CONTRASEÑA</label>
+                                    <span v-if="logspan === 1"><strong class="text-danger">USUARIO Y O CONTRASEÑA INCORRECTOS</strong></span>
+                                    <span v-if="logspan === 2"><strong class="text-danger">POR FAVOR INGRESE UN USUARIO Y CONTRASEÑA</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- cards log in -->
+                        <div class="modal-body" v-if="modaltrigger === 1">
+                            <h5 class="text-center"><strong></strong></h5>
+
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
+                                    <div class="card" data-bs-toggle="modal" data-bs-target="#chef-table">
+                                        <img src="./assets/images/chef.jpg" class="card-img-top" alt="hb4">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">CHEF</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
+                                    <div class="card" data-bs-toggle="modal" data-bs-target="#waiter-table">
+                                        <img src="./assets/images/mesero.jpg" class="card-img-top" alt="hb4">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">MESERO</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-lg-4 mt-3 mb-4">
+                                    <div class="card" data-bs-toggle="modal" data-bs-target="#admin-table">
+                                        <img src="./assets/images/administrador.jpg" class="card-img-top" alt="hb4">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">ADMIN</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button @click="login" type="button" v-if="modaltrigger === 0"><strong>INGRESAR</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- fin modal formulario adopcion -->
+    </section>
         </section>
+    </main>
+    
         <!-- FOOTER -->
         <footer id="footer" class="pb-4 pt-4">
             <div class="container">
