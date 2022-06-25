@@ -1,24 +1,38 @@
 
 body{
-    background-image: url("../images/pets1.jpg");
+    background-image: url("../images/vectorbg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #6699;
+    background-color: #ccc;
 }
 
-#login .card{
+.body2{
+    background: #fcfcfc;
+}
+
+#login .card-login{
     background: rgba(0,0,0,0.15);
     backdrop-filter: blur(5px);
     box-shadow: 0 25px 45px rgba(0,0,0,0.6);
     border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    text-align: center;
 }
 
+#login .card-login input[type="email"], input[type="password"]{
+    width: 80%;
+    margin: auto;
+}
 
 #login .card-header{
     background-color: #191919;
     font-weight: bold;
     color: #fff;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #login .card-body form label{
@@ -52,6 +66,44 @@ body{
     min-height: 100vh;
 }
 
+/* START NAV-BAR AND HEADER */
+header{
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    background: linear-gradient(90deg, #b2a8a8, #cad1d7 25%, #ffffff);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+#navbar img{
+    width: 50px;
+    height: 50px;
+}
+
+#navbar .navbar-brand span{
+    border: 3px solid #5590f0;
+    color: #000;
+    font-weight: bold;
+}
+
+#navbar a{
+    color: #000;
+}
+
+#navbar a:hover{
+    color: #5590f0;
+}
+
+#navbar .logout:hover{
+    color: red;
+}
+/* END NAV-BAR AND HEADER */
+
+
 .form {
     width: 450px;
 }
@@ -71,8 +123,6 @@ margin-top: 80px;
 
 .card{
     background-color: #191919;
-    margin-left: 200px;
-    margin-top: 100px;
     font-size: 20px;
     color: #fff;
     align-items: center;
@@ -80,12 +130,12 @@ margin-top: 80px;
     border-radius: 10px;
     border: none;
 }
- .card:hover{
-    border: 2px solid #fff;
-    box-shadow: 0 0 20px #fff;
+.card:hover{
+    border: 2px solid #000;
+    box-shadow: 0 0 20px #000;
 }
 
- .card img{
+.card img{
     border-radius: 10px;
 }
 
@@ -102,14 +152,15 @@ margin-top: 80px;
 text-align: center;
 
 }
+
+/* START FOOTER */
 #footer {
-    background: linear-gradient(90deg, #0b0b0b, #1b1c1d 25%, #232526);
-    margin-top: 150px;
+    background: linear-gradient(90deg, #b2a8a8, #cad1d7 25%, #ffffff);
 }
 
 #footer a, h6 {
     text-decoration: none;
-    color: white;
+    color: #000;
 }
 
 #footer h6 i{
@@ -117,9 +168,10 @@ text-align: center;
 }
 
 #footer a{
-    color: white;
+    color: #000;
 }
 
 #footer a:hover{
-    color: white;
+    color: #5590f0;
 }
+/* END FOOTER */

@@ -4,7 +4,7 @@ var app = new Vue({
     el: '#app',
     data: {
         users: [
-            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: true},//change the token to false when you're working into app.html
+            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: false},//change the token to false when you're working into app.html
         ],
         newArrUsers: [],
         pets: [
@@ -16,8 +16,7 @@ var app = new Vue({
 
         userinput: '',
         passinput: '',
-        href: '#',
-        pos: 0,//change it to '' when the app.js is ready
+        pos: '',//change it to '' when the app.js is ready
     },
     methods: {
         login(){
@@ -28,18 +27,29 @@ var app = new Vue({
     
                 if(index != -1 && this.passinput === this.users[index].pass){
                     this.pos = index;
-                    this.href = 'app.html'
                     this.newArrUsers[index].token = true;
                     this.updateLocalStorage();
                     // alert('Valid user!');
-                    this.mensaje("Ingresa los datos", "success");
+                    this.mensaje("Inicio exitoso", "success");
+
+                    setTimeout(function(){ location.href = "app.html" }, 2000);//redirects to app.html after 2 seconds has passed
+
                 }else{
                     // alert('Invalid password or email');
-                    this.mensaje("ingresa los datos", "error");
+                    this.mensaje("Correo o contraseña incorrecta", "error");
                 }
             }else{
                 // alert('An email and password must be provided');
-                this.mensaje("ingresa los datos", "error");
+                this.mensaje("Por favor ingrese un usuario y contraseña", "error");
+            }
+        },
+        logout(){
+            if (confirm("¿Esta seguro de que desea cerrar sesión?") === true){
+                this.newArrUsers[this.pos].token = false;
+                this.pos = '';
+                this.updateLocalStorage();
+                this.mensaje("Se ha cerrado la sesión correctamente", "success");
+                setTimeout(function(){ location.href = "index.html" }, 2000);
             }
         },
         mensaje: function (msj, icono) {

@@ -14,60 +14,65 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../css/styles.css">
     </head>
-    <body>
+    <body class="body2">
         <div id="app" v-if="newArrUsers[pos].token === true">
+            <!-- HEADER -->
             <header>
-                <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav id="navbar" class="navbar navbar-expand-lg bg-light navbar-light">
                     <div class="container">
                         <a class="navbar-brand" href="index.html">
-                            
+                            <img src="../images/logo.png" alt="logo">
+                            <span>Pets</span>
                         </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto ms-auto mb-2 mb-lg-0">
-                                <li class="nav-item ">
-                                    <a class="nav-link active" aria-current="page" href="app.html">Hola"Usuario"</a>
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Adopciones</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="app.html">Home</a>
+                                    <a class="nav-link logout" aria-current="page" href="#" @click="logout">Cerrar Sesión <i class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="app.html">cerrar sesion</a>
+                                <li>
+                                    <a class="nav-link" aria-current="page">Bienvenido: <span v-text="newArrUsers[pos].name" class="text-primary"></span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="app.html">Inicio</a>
-                                </li>                           
                             </ul>
                         </div>
                     </div>
                 </nav>
             </header>
-            <main>
+            <!-- HEADER -->
 
-           <h1 class="menu-title">PETS</h1>
+
+        <h1 class="menu-title">PETS</h1>
         </div>
         <section class="cards-menu">
-        <div class="row">
-            <div class="col-md-5 col-lg-5 mt-3 mb-4">
-                <div class="card " id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
-                    <img src="/Pets/images/adoptar1.jpg" class="card-img-top" alt="hb4">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Adoptar</h5>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 mt-3 mb-4">
+                        <div class="card " id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
+                            <img src="../images/adoptar1.jpg" class="card-img-top" alt="hb4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Adoptar</h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-5 col-lg-5 mt-3 mb-4">
-                <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
-                    <img src="/Pets/images/adoptar2.jpg" class="card-img-top" alt="hb4">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Dar En Adopcion</h5>
+                    <div class="col-md-6 col-lg-6 mt-3 mb-4">
+                        <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
+                            <img src="../images/adoptar2.jpg" class="card-img-top" alt="hb4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Dar En Adopcion</h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div>     
             </div>
-        </div>     
         </section>    
         <!-- Modal dar en adopción-->
         <div class="modal fade" id="modalAdopcion" tabindex="-1" aria-labelledby="modalAdopcion" aria-hidden="true">
-            <div class="modal-dialog modal-sm"">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Datos de la mascota</h5>
@@ -94,7 +99,7 @@
                             <div class="mb-3">
                                 <label for="fileDog" class="form-label">Foto del perro</label>
                                 <input class="form-control" type="file" id="fileDog" v-model="fileDog">
-                              </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -105,27 +110,25 @@
             </div>
         </div>
         <!-- FOOTER -->
+        <!-- FOOTER -->
         <footer id="footer" class="pb-4 pt-4">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-12 col-lg col-md">
-                        <a href="#">Preguntas Frecuentes</a>
+                        <a href="#">FAQ</a>
                     </div>
                     <div class="col-12 col-lg col-md">
-                        <a href="#">Contáctanos</a>
+                        <a href="#">Contact</a>
                     </div>
                     <div class="col-12 col-lg col-md">
                         <a href="#">Novedades</a>
                     </div>
                     <div class="col-12 col-lg col-md">
-                        <a href="#">Privacidad</a>
-                    </div>
-                    <div class="col-12 col-lg col-md">
-                        <a href="#">Productos</a>
+                        <a href="#">Privacy</a>
                     </div>
                     <div class="col-12 col-lg col-md">
                         <h6 class="text-center mt-2 mb-2">
-                            Siguenos: 
+                            Follow us: 
                             <a href="#"><i class="fab fa-instagram-square"></i></a>
                             <a href="#"><i class="fab fa-facebook-square"></i></a>
                         </h6>
@@ -135,9 +138,11 @@
                 <h6 class="text-center mt-4">Pets</h6>
             </div>
         </footer>
+        <!-- /FOOTER -->
+        <!--/FOOTER-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
     <script src="../js/vue.js"></script>
-    <script src="..js/sweetalert2.all.min.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
     <script src="../js/main.js"></script>
 </html>

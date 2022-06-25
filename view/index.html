@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../css/styles.css">
     </head>
-    <body>
+    <body> <!--<a href='https://www.freepik.es/vectores/fondo-huesos'>Vector de fondo huesos creado por isidoro151 - www.freepik.es</a>-->
         <div id="app">
             <section id="login">
                 <div class="container">
@@ -23,21 +23,21 @@
                         <div class="col-lg-6">
                             <div class="card-login">
                                 <div class="card-header text-center">
-                                    LOG-IN
+                                    Iniciar Sesión
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form class="mt-3">
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                                            <label for="exampleInputEmail1" class="form-label">Dirección de Correo</label>
                                             <input v-model="userinput" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type your email address">
-                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                            <div id="emailHelp" class="form-text">Nunca compratiremos tu correo con nadie.</div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                                             <input v-model="passinput" type="password" class="form-control" id="exampleInputPassword1" placeholder="Type your password">
                                         </div>
                                         <div class="row">
-                                            <a class="col-4 btn btn-dark logbtn" :href="href"  @click="login">Login</a>
+                                            <button type="button" class="col-4 btn btn-dark logbtn mb-3"  @click="login">Entrar</button>
                                         </div>
                                     </form>
                                 </div>
