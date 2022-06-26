@@ -53,13 +53,22 @@ var app = new Vue({
             }
         },
         mensaje: function (msj, icono) {
-            Swal.fire({
-            position: 'top-center',
-            icon: icono,
-            title: msj,
-            showConfirmButton: false,
-            timer: 1500
-            })
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-center',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: icono,
+                title: msj
+              })
         },
         listData(){
             this.newArrUsers = this.users;
