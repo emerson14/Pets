@@ -24,7 +24,6 @@ var app = new Vue({
         raceDog: '',
         fileDog: '',
         nPetsAdopted: 0,
-        //arrayTabPet: [],
         userinput: '',
         passinput: '',
         pos: '',//change it to '' when the app.js is ready
@@ -44,7 +43,7 @@ var app = new Vue({
                     // alert('Valid user!');
                     this.mensaje("Inicio exitoso", "success");
 
-                    setTimeout(function(){ location.href = "app.html" }, 2000);//redirects to app.html after 2 seconds has passed
+                    setTimeout(function(){ location.href = "app.html" }, 1500);//redirects to app.html after 2 seconds has passed
 
                 }else{
                     // alert('Invalid password or email');
@@ -61,7 +60,7 @@ var app = new Vue({
                 this.pos = '';
                 this.updateLocalStorage();
                 this.mensaje("Se ha cerrado la sesión correctamente", "success");
-                setTimeout(function(){ location.href = "index.html" }, 2000);
+                setTimeout(function(){ location.href = "index.html" }, 1500);
             }
         },
         mensaje: function (msj, icono) {
@@ -108,40 +107,41 @@ var app = new Vue({
                 }
             })
         },
-        // delData(index){
-        //     if (confirm("Are you sure you want to delete this item?") === true){
-        //         this.adminData.splice(index, 1);
-        //     }
-        // },
         listData(){
             this.newArrUsers = this.users;
         },
         updateLocalStorage(){
             localStorage.setItem('users', JSON.stringify(this.newArrUsers));
-            localStorage.setItem('pets', JSON.stringify(this.newArrPets));
+            localStorage.setItem('petsn', JSON.stringify(this.newArrPets));
             localStorage.setItem('pos', JSON.stringify(this.pos));
+            localStorage.setItem('admdata', JSON.stringify(this.adminData));
         },
         filter(){
             if (this.foption === 'all') {
-                this.newArrPets = this.pets;
-                this.updateLocalStorage();
+                this.newArrPets = this.pets.filter(e => e.status === true);
+                //this.updateLocalStorage();
             }else{
-                this.newArrPets = this.pets.filter(e => e.type === this.foption);
-                this.updateLocalStorage();
+                this.newArrPets = this.pets.filter(e => e.type === this.foption && e.status === true);
+                //this.updateLocalStorage();
             }
         },
         adopt(item){
             item.status = false;
+            const index = this.pets.findIndex((object) => {
+                return object.name == item.name;
+            });
+            this.pets[index].status = false;
+            console.table(this.pets[index]);
             item.adoptedby = `${this.newArrUsers[this.pos].name} ${this.newArrUsers[this.pos].lastname}`;
-            this.newArrPets = this.newArrPets.filter(e => e.status === true);
+            this.newArrPets = this.pets.filter(e => e.status === true);
             this.nPetsAdopted += 1;
+            this.foption = 'all';
             const date = new Date();
             this.adminData.push({
                 name: item.name,
                 date: date.toLocaleDateString(),
                 adopter: item.adoptedby
             });
-            console.table(this.adminData);
             //this.updateLocalStorage();
         }
     },
@@ -149,15 +149,23 @@ var app = new Vue({
         if (localStorage.getItem('users') !== null) {
             this.newArrUsers = JSON.parse(localStorage.getItem('users'));
             this.pos = JSON.parse(localStorage.getItem('pos'));
+            this.nPetsAdopted = JSON.parse(localStorage.getItem('nadopt'));
         }else{
             this.listData();
-            this.pos = this.pos
+            this.pos = this.pos;
+            this.nPetsAdopted = this.nPetsAdopted;
         }
 
-        if (localStorage.getItem('pets') !== null) {
-            this.newArrPets = JSON.parse(localStorage.getItem('pets'));
+        if (localStorage.getItem('petsn') !== null) {
+            this.newArrPets = JSON.parse(localStorage.getItem('petsn'));
         }else{
             this.newArrPets = this.pets;
+        }
+
+        if (localStorage.getItem('admdata') !== null) {
+            this.adminData = JSON.parse(localStorage.getItem('admdata'));
+        }else{
+            this.adminData = this.adminData;
         }
     }
 });
