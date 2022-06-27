@@ -46,100 +46,151 @@
             <!-- HEADER -->
 
 
-        <h1 class="menu-title">PETS</h1>
-        </div>
-        <section class="cards-menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 mt-3 mb-4">
-                        <div class="card " id="card-menu" data-bs-toggle="modal" data-bs-target="#adopcion1-table">
-                            <img src="../images/adoptar1.jpg" class="card-img-top" alt="hb4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Adoptar</h5>
+            <h1 class="menu-title">PETS</h1>
+            <section class="cards-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 mt-3 mb-4">
+                            <div class="card " id="card-menu" data-bs-toggle="modal" data-bs-target="#adoptar">
+                                <img src="../images/adoptar1.jpg" class="card-img-top" alt="hb4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Adoptar</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 mt-3 mb-4">
-                        <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
-                            <img src="../images/adoptar2.jpg" class="card-img-top" alt="hb4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Dar En Adopcion</h5>
+                        <div class="col-md-6 col-lg-6 mt-3 mb-4">
+                            <div class="card" id="card-menu" data-bs-toggle="modal" data-bs-target="#modalAdopcion">
+                                <img src="../images/adoptar2.jpg" class="card-img-top" alt="hb4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Dar En Adopcion</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>     
-            </div>
-        </section>    
-        <!-- Modal dar en adopción-->
-        <div class="modal fade" id="modalAdopcion" tabindex="-1" aria-labelledby="modalAdopcion" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Datos de la mascota</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Tipo de mascota</label>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                    <option selected>Seleccione una opción</option>
-                                    <option value="1">Perro</option>
-                                    <option value="2">Gato</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nameDog" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="" placeholder="Ingrese nombre" v-model="nameDog">
-                            </div>
-                            <div class="mb-3">
-                                <label for="raceDog" class="form-label">Raza</label>
-                                <input type="text" class="form-control" id="" placeholder="Ingrese raza" v-model="raceDog">
-                            </div>
-                            <div class="mb-3">
-                                <label for="fileDog" class="form-label">Foto del perro</label>
-                                <input class="form-control" type="file" id="fileDog" v-model="fileDog">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>     
+                </div>
+            </section>    
+            <!-- Modal dar en adopción-->
+            <div class="modal fade" id="modalAdopcion" tabindex="-1" aria-labelledby="modalAdopcion" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Datos de la mascota</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Tipo de mascota</label>
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option selected>Seleccione una opción</option>
+                                        <option value="1">Perro</option>
+                                        <option value="2">Gato</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nameDog" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="" placeholder="Ingrese nombre" v-model="nameDog">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="raceDog" class="form-label">Raza</label>
+                                    <input type="text" class="form-control" id="" placeholder="Ingrese raza" v-model="raceDog">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fileDog" class="form-label">Foto del perro</label>
+                                    <input class="form-control" type="file" id="fileDog">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- FOOTER -->
-        <!-- FOOTER -->
-        <footer id="footer" class="pb-4 pt-4">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12 col-lg col-md">
-                        <a href="#">FAQ</a>
-                    </div>
-                    <div class="col-12 col-lg col-md">
-                        <a href="#">Contact</a>
-                    </div>
-                    <div class="col-12 col-lg col-md">
-                        <a href="#">Novedades</a>
-                    </div>
-                    <div class="col-12 col-lg col-md">
-                        <a href="#">Privacy</a>
-                    </div>
-                    <div class="col-12 col-lg col-md">
-                        <h6 class="text-center mt-2 mb-2">
-                            Follow us: 
-                            <a href="#"><i class="fab fa-instagram-square"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                        </h6>
+            <!-- /Modal dar en adopción-->
+
+            <!-- Modal adoptar -->
+            <div class="modal fade" id="adoptar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Adopciones</h5>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col text-center text-uppercase">
+                                        <h2 class="menu-title">Pets For Adoption</h2>
+                                    </div>
+                                </div>
+                                <div class="row"> <!--Filter -->
+                                    <div class="col-lg-6 col-md-4 text-center">
+                                        <h4>Filtros</h4>
+                                        <select class="form-select" v-model="foption" @change="filter">
+                                            <option value="all">Todos</option>
+                                            <option value="Perro">Perros</option>
+                                            <option value="Gato">Gatos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="pets.length">
+                                    <div class="col-md-6 col-lg-3 mt-3 mb-4" v-for="(item, index) in newArrPets" :key="item.id">
+                                        <div class="card" v-if="item.status === true">
+                                            <img :src="item.img" class="card-img-top" alt="petimg">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Nombre: <span v-text="item.name"></span></h5>
+                                                <h5 class="card-title">Tipo: <span v-text="item.type"></span></h5>
+                                                <h5 class="card-title">Raza: <span v-text="item.race"></span></h5>
+                                                <h5 class="card-title">Edad: <span v-text="item.age"></span></h5>
+                                                <h5 class="card-title text-success">Disponible</h5>
+                                                <div class="row">
+                                                    <div class="btnadd"><button type="button" class="col-12 btn btn-dark" @click="adopt(item)">Adoptar</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
                     </div>
                 </div>
-                <h6 class="text-center mt-4">© Copyright - All rights reserved</h6>
-                <h6 class="text-center mt-4">Pets</h6>
             </div>
-        </footer>
-        <!-- /FOOTER -->
-        <!--/FOOTER-->
+            <!-- /Modal adoptar -->
+
+            <!-- FOOTER -->
+            <footer id="footer" class="pb-4 pt-4">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-12 col-lg col-md">
+                            <a href="#">FAQ</a>
+                        </div>
+                        <div class="col-12 col-lg col-md">
+                            <a href="#">Contact</a>
+                        </div>
+                        <div class="col-12 col-lg col-md">
+                            <a href="#">Novedades</a>
+                        </div>
+                        <div class="col-12 col-lg col-md">
+                            <a href="#">Privacy</a>
+                        </div>
+                        <div class="col-12 col-lg col-md">
+                            <h6 class="text-center mt-2 mb-2">
+                                Follow us: 
+                                <a href="#"><i class="fab fa-instagram-square"></i></a>
+                                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            </h6>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-4">© Copyright - All rights reserved</h6>
+                    <h6 class="text-center mt-4">Pets</h6>
+                </div>
+            </footer>
+            <!-- /FOOTER -->
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
     <script src="../js/vue.js"></script>

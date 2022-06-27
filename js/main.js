@@ -4,19 +4,30 @@ var app = new Vue({
     el: '#app',
     data: {
         users: [
-            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: false},//change the token to false when you're working into app.html
+            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: false, status: 'user'},
+            {id: 1, name: 'admin1', lastname: 'adm', email: 'admin@example.com', pass: '1234', token: false, status: 'admin'},
         ],
         newArrUsers: [],
         pets: [
-            {id: 1, name: 'Pipo', race: 'Creole', age: 1, status: false}
+            {id: 1, img: '../images/pets/p1.jpg', name: 'Cheems', race: 'Akita', age: 4, status: true, type: 'Perro', adoptedby: ''},
+            {id: 2, img: '../images/pets/p2.jpg', name: 'Rex', race: 'Corgi', age: 2, status: true, type: 'Perro', adoptedby: ''},
+            {id: 3, img: '../images/pets/p3.jpg', name: 'Qwerty', race: 'Golden R.', age: 3, status: true, type: 'Perro', adoptedby: ''},
+            {id: 4, img: '../images/pets/p4.jpg', name: 'Cerberus', race: 'Pomerania', age: 1, status: true, type: 'Perro', adoptedby: ''},
+            {id: 5, img: '../images/pets/c1.jpg', name: 'Pelusa', race: 'Criollo', age: 1, status: true, type: 'Gato', adoptedby: ''},
+            {id: 6, img: '../images/pets/c2.jpeg', name: 'Tom', race: 'Criollo', age: 1, status: true, type: 'Gato', adoptedby: ''},
+            {id: 7, img: '../images/pets/c3.jpg', name: 'Meme', race: 'Criollo', age: 2, status: true, type: 'Gato', adoptedby: ''},
+            {id: 8, img: '../images/pets/c4.jpg', name: 'Natasha', race: 'Siames', age: 1, status: true, type: 'Gato', adoptedby: ''},
         ],
+        newArrPets: [],
+        adminData: [],
         nameDog: '',
         raceDog: '',
         fileDog: '',
-
+        nPetsAdopted: 0,
         userinput: '',
         passinput: '',
         pos: '',//change it to '' when the app.js is ready
+        foption: 'all',
     },
     methods: {
         login(){
@@ -60,23 +71,47 @@ var app = new Vue({
                 timer: 2000,
                 timerProgressBar: true,
                 didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
-              })
-              
-              Toast.fire({
+            })
+
+            Toast.fire({
                 icon: icono,
                 title: msj
-              })
+            })
         },
         listData(){
             this.newArrUsers = this.users;
         },
         updateLocalStorage(){
             localStorage.setItem('users', JSON.stringify(this.newArrUsers));
+            localStorage.setItem('pets', JSON.stringify(this.newArrPets));
             localStorage.setItem('pos', JSON.stringify(this.pos));
         },
+        filter(){
+            if (this.foption === 'all') {
+                this.newArrPets = this.pets;
+                this.updateLocalStorage();
+            }else{
+                this.newArrPets = this.pets.filter(e => e.type === this.foption);
+                this.updateLocalStorage();
+            }
+        },
+        adopt(item){
+            item.status = false;
+            item.adoptedby = `${this.newArrUsers[this.pos].name} ${this.newArrUsers[this.pos].lastname}`;
+            this.newArrPets = this.newArrPets.filter(e => e.status === true);
+            this.nPetsAdopted += 1;
+            const date = new Date();
+            this.adminData.push({
+                name: item.name,
+                date: date.toLocaleDateString(),
+                adopter: item.adoptedby
+            });
+            console.table(this.adminData);
+            //this.updateLocalStorage();
+        }
     },
     created(){
         if (localStorage.getItem('users') !== null) {
@@ -85,6 +120,12 @@ var app = new Vue({
         }else{
             this.listData();
             this.pos = this.pos
+        }
+
+        if (localStorage.getItem('pets') !== null) {
+            this.newArrPets = JSON.parse(localStorage.getItem('pets'));
+        }else{
+            this.newArrPets = this.pets;
         }
     }
 });

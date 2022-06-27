@@ -104,6 +104,58 @@ header{
 /* END NAV-BAR AND HEADER */
 
 
+/* START adoptar CARDS */
+#adoptar .menu-title{
+    color: #000;
+}
+
+#adoptar hr{
+    color: #000;
+}
+
+#adoptar .card{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
+    transition: 0.2s ease;
+}
+
+#adoptar .card:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+#adoptar .card span{
+    border: none;
+}
+
+#adoptar .card-body p{
+    text-align: justify;
+}
+
+#adoptar .card-body button{
+    font-weight: bold;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px 45px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background-color: #191919;
+    color: #fff;
+    transition: 0.5s all ease;
+}
+
+#adoptar .card-body .btnadd button:hover{
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+}
+
+
+/* END adoptar CARDS */
+
+
 .form {
     width: 450px;
 }
