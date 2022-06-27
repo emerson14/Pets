@@ -119,6 +119,7 @@ var app = new Vue({
             }).then((result) => {
                 if (result.isConfirmed) {
                     this.adminData.splice(index, 1);
+                    this.nPetsAdopted -= 1;
                     this.mensaje("Eliminado", "success");
                 } else if (
                     result.dismiss === Swal.DismissReason.cancel
