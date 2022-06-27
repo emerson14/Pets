@@ -55,13 +55,6 @@ var app = new Vue({
             }
         },
         logout(){
-            // if (confirm("¿Esta seguro de que desea cerrar sesión?") === true){
-            //     this.newArrUsers[this.pos].token = false;
-            //     this.pos = '';
-            //     this.updateLocalStorage();
-            //     this.mensaje("Se ha cerrado la sesión correctamente", "success");
-            //     setTimeout(function(){ location.href = "index.html" }, 1500);
-            // }
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
