@@ -143,20 +143,51 @@
                                     <input type="text" class="form-control" id="" placeholder="Ingrese raza" v-model="raceDog">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fileDog" class="form-label">Foto del perro</label>
-                                    <input class="form-control" type="file" id="fileDog">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#modalseleccionar">
+                                        Seleccionar imagen
+                                      </button>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-primary"  >Guardar</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- /Modal dar en adopción-->
-
+           <!-- Modal seleccionar imagenes-->   
+           <div class="modal fade" id="modalseleccionar"  tabindex="-1" aria-labelledby="modalseleccionar" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Seleccionar imagen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="selectimg">
+                    <div class=" col-md-4 col-lg-4 mt-3 mb-4">
+                    <a href="" title="Seleccionar imagen" class="btn"><img src="/Pets/images/imgseleccionar1.jpg" style="width: 300px; padding: 10px; ;"><img></a>
+                </div>
+                <div class="col-md-4 col-lg-4 mt-3 mb-4">
+                    <a href="" title="Seleccionar imagen" class="btn"><img src="/Pets/images/imgseleccionar2.jpg" style="width: 300px; padding: 10px; ;"><img></a>
+                </div>
+                <div class=" col-md-4 col-lg-4 mt-3 mb-4" >
+                    <a href="" title="Seleccionar imagen" class="btn"><img src="/Pets/images/imgseleccionar3.jpg" style="width: 300px; padding: 10px; ;"><img></a>
+                </div>
+                <div class=" col-md-4 col-lg-4 mt-3 mb-4" >
+                    <a href="" title="Seleccionar imagen" class="btn"><img src="/Pets/images/imgseleccionar4.jpg" style="width: 300px; padding: 10px; ;"><img></a>
+                </div>
+                </div>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Cancelar</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+   <!-- /Modal seleccionar imagenes-->
             <!-- Modal adoptar -->
             <div class="modal fade" id="adoptar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
