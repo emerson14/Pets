@@ -55,13 +55,39 @@ var app = new Vue({
             }
         },
         logout(){
-            if (confirm("¿Esta seguro de que desea cerrar sesión?") === true){
-                this.newArrUsers[this.pos].token = false;
-                this.pos = '';
-                this.updateLocalStorage();
-                this.mensaje("Se ha cerrado la sesión correctamente", "success");
-                setTimeout(function(){ location.href = "index.html" }, 1500);
-            }
+            // if (confirm("¿Esta seguro de que desea cerrar sesión?") === true){
+            //     this.newArrUsers[this.pos].token = false;
+            //     this.pos = '';
+            //     this.updateLocalStorage();
+            //     this.mensaje("Se ha cerrado la sesión correctamente", "success");
+            //     setTimeout(function(){ location.href = "index.html" }, 1500);
+            // }
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })       
+            swalWithBootstrapButtons.fire({
+                title: '¿Esta seguro de que desea cerrar sesión?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, Cerrar sesión',
+                cancelButtonText: 'Cancelar',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.newArrUsers[this.pos].token = false;
+                    this.pos = '';
+                    this.updateLocalStorage();
+                    this.mensaje("Se ha cerrado la sesión correctamente", "success");
+                    setTimeout(function(){ location.href = "index.html" }, 1500);
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                }
+            })
         },
         mensaje: function (msj, icono) {
             const Toast = Swal.mixin({
