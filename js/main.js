@@ -82,7 +82,7 @@ var app = new Vue({
                 title: msj
             })
         },
-        /*deleteArrayTabPet(index){
+        delData(index){
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -100,24 +100,19 @@ var app = new Vue({
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.arrayTabPet.splice(index,1)
-                    .then(function(response) {
-                        this.mensaje("Eliminado", "success");
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
+                    this.adminData.splice(index, 1);
+                    this.mensaje("Eliminado", "success");
                 } else if (
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
                 }
             })
-        },*/
-        delData(index){
-            if (confirm("Are you sure you want to delete this item?") === true){
-                this.adminData.splice(index, 1);
-            }
         },
+        // delData(index){
+        //     if (confirm("Are you sure you want to delete this item?") === true){
+        //         this.adminData.splice(index, 1);
+        //     }
+        // },
         listData(){
             this.newArrUsers = this.users;
         },
