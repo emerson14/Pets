@@ -24,8 +24,7 @@ var app = new Vue({
         raceDog: '',
         fileDog: '',
         nPetsAdopted: 0,
-        arrayTabPet: [],
-
+        //arrayTabPet: [],
         userinput: '',
         passinput: '',
         pos: '',//change it to '' when the app.js is ready
@@ -83,7 +82,7 @@ var app = new Vue({
                 title: msj
             })
         },
-        deleteArrayTabPet(index){
+        /*deleteArrayTabPet(index){
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -113,6 +112,11 @@ var app = new Vue({
                 ) {
                 }
             })
+        },*/
+        delData(index){
+            if (confirm("Are you sure you want to delete this item?") === true){
+                this.adminData.splice(index, 1);
+            }
         },
         listData(){
             this.newArrUsers = this.users;

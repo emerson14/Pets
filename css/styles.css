@@ -156,6 +156,13 @@ header{
 /* END adoptar CARDS */
 
 
+/*start admin table*/
+#tableAdmin .report{
+    font-weight: bold;
+    font-size: 20px;
+}
+/*end admin table*/
+
 .form {
     width: 450px;
 }
