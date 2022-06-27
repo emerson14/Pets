@@ -13,6 +13,7 @@ var app = new Vue({
         nameDog: '',
         raceDog: '',
         fileDog: '',
+        arrayTabPet: [],
 
         userinput: '',
         passinput: '',
@@ -68,6 +69,37 @@ var app = new Vue({
               Toast.fire({
                 icon: icono,
                 title: msj
+              })
+        },
+        deleteArrayTabPet(index){
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                  confirmButton: 'btn btn-success',
+                  cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+              })       
+              swalWithBootstrapButtons.fire({
+                title: '¿Estás seguro?',
+                text: "No podras revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, Eliminar',
+                cancelButtonText: 'No, Cancelar',
+                reverseButtons: true
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    this.arrayTabPet.splice(index,1)
+                    .then(function(response) {
+                        this.mensaje("Eliminado", "success");
+                    })
+                      .catch(function(error) {
+                        console.log(error);
+                      });
+                } else if (
+                  result.dismiss === Swal.DismissReason.cancel
+                ) {
+                }
               })
         },
         listData(){
