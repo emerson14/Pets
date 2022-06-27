@@ -113,16 +113,17 @@ var app = new Vue({
         updateLocalStorage(){
             localStorage.setItem('users', JSON.stringify(this.newArrUsers));
             localStorage.setItem('petsn', JSON.stringify(this.newArrPets));
+            localStorage.setItem('pets', JSON.stringify(this.pets));
             localStorage.setItem('pos', JSON.stringify(this.pos));
             localStorage.setItem('admdata', JSON.stringify(this.adminData));
         },
         filter(){
             if (this.foption === 'all') {
                 this.newArrPets = this.pets.filter(e => e.status === true);
-                //this.updateLocalStorage();
+                this.updateLocalStorage();
             }else{
                 this.newArrPets = this.pets.filter(e => e.type === this.foption && e.status === true);
-                //this.updateLocalStorage();
+                this.updateLocalStorage();
             }
         },
         adopt(item){
@@ -142,7 +143,7 @@ var app = new Vue({
                 date: date.toLocaleDateString(),
                 adopter: item.adoptedby
             });
-            //this.updateLocalStorage();
+            this.updateLocalStorage();
         }
     },
     created(){
@@ -156,10 +157,12 @@ var app = new Vue({
             this.nPetsAdopted = this.nPetsAdopted;
         }
 
-        if (localStorage.getItem('petsn') !== null) {
+        if (localStorage.getItem('petsn') !== null && localStorage.getItem('pets') !== null) {
             this.newArrPets = JSON.parse(localStorage.getItem('petsn'));
+            this.pets = JSON.parse(localStorage.getItem('pets'));
         }else{
             this.newArrPets = this.pets;
+            this.pets = this.pets;
         }
 
         if (localStorage.getItem('admdata') !== null) {
