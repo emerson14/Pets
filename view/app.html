@@ -70,7 +70,7 @@
                 </div>     
             </div>
         </section> 
-        //
+        <!-- TABLA DE DATOS ADMIN -->
         <section id="tableAdmin" v-if="newArrUsers[pos].token === true && newArrUsers[pos].status === admin">
             <div class="container">
                 <div class="table-responsive">
@@ -85,9 +85,9 @@
                         </thead>
                         <tbody class="text-center">
                             <tr v-for="(objeto,index) in arrayTabPet" :key="`objeto-${index}`">
-                                <td v-text="objeto.element"></td>
-                                <td v-text="objeto.element"></td>
-                                <td v-text="objeto.element"></td> 
+                                <td v-text="objeto.name"></td>
+                                <td v-text="objeto.date"></td>
+                                <td v-text="objeto.nameAdoption"></td> 
                                 <td>
                                     <button
                                         type="button"
@@ -98,7 +98,6 @@
                                         >
                                         <i class="fa-solid fa-trash-can"></i><i class="icon-trash"></i>
                                     </button>
-                                    <!-- @click="deleteArrayTabPet(index)" -->
                                 </td> 
                             </tr>
                         </tbody>
