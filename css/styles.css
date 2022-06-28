@@ -176,6 +176,21 @@ header{
 }
 /*end back button*/
 
+/*START ERROR 404*/
+#app2 .notvalid{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#app2 .container{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+/*END ERROR 404*/
+
 .form {
     width: 450px;
 }
