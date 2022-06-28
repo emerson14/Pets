@@ -119,6 +119,8 @@ var app = new Vue({
             }).then((result) => {
                 if (result.isConfirmed) {
                     this.adminData.splice(index, 1);
+                    this.nPetsAdopted -= 1;
+                    this.updateLocalStorage();
                     this.mensaje("Eliminado", "success");
                 } else if (
                     result.dismiss === Swal.DismissReason.cancel
@@ -134,6 +136,7 @@ var app = new Vue({
             localStorage.setItem('petsn', JSON.stringify(this.newArrPets));
             localStorage.setItem('pets', JSON.stringify(this.pets));
             localStorage.setItem('pos', JSON.stringify(this.pos));
+            localStorage.setItem('nadopt', JSON.stringify(this.nPetsAdopted));
             localStorage.setItem('admdata', JSON.stringify(this.adminData));
         },
         filter(){
@@ -151,7 +154,6 @@ var app = new Vue({
                 return object.name == item.name;
             });
             this.pets[index].status = false;
-            console.table(this.pets[index]);
             item.adoptedby = `${this.newArrUsers[this.pos].name} ${this.newArrUsers[this.pos].lastname}`;
             this.newArrPets = this.pets.filter(e => e.status === true);
             this.nPetsAdopted += 1;
