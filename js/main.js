@@ -4,7 +4,7 @@ var app = new Vue({
     el: '#app',
     data: {
         users: [
-            {id: 1, name: 'test1', lastname: 'lastname1', email: 'test1@example.com', pass: '1234', token: false, status: 'user'},
+            {id: 1, name: 'Pepito', lastname: 'Pérez', email: 'test1@example.com', pass: '1234', token: false, status: 'user'},
             {id: 1, name: 'admin1', lastname: 'adm', email: 'admin@example.com', pass: '1234', token: false, status: 'admin'},
         ],
         newArrUsers: [],
@@ -20,14 +20,17 @@ var app = new Vue({
         ],
         newArrPets: [],
         adminData: [],
-        nameDog: '',
-        raceDog: '',
-        fileDog: '',
+        namePet: '',
+        racePet: '',
+        agePet: 0,
+        typePet: '',
+        newPetRoute: '',
         nPetsAdopted: 0,
         userinput: '',
         passinput: '',
         pos: '',//change it to '' when the app.js is ready
         foption: 'all',
+        spaninputs: [{spinp: 0}, {spinp: 0}, {spinp: 0}, {spinp: 0}, {spinp: 0}],//span alerts for the form inputs
     },
     methods: {
         login(){
@@ -165,6 +168,74 @@ var app = new Vue({
                 adopter: item.adoptedby
             });
             this.updateLocalStorage();
+        },
+        selectimg(img){//fill the form with an predeterminated image
+            this.newPetRoute = img;
+        },
+        saveNewPet(){
+            if (this.newPetRoute.length <= 0) {//img from input validator
+                this.spaninputs[4].spinp = 1;
+            }else{
+                this.spaninputs[4].spinp = 0;
+            }
+
+            if (
+                this.newPetRoute.length > 0 && this.namePet.length > 0
+                && this.racePet.length > 0 && this.agePet.length >= 0
+                && this.typePet.length > 0
+                ) {
+                    this.pets.push({
+                        id: this.pets.length + 1,
+                        img: this.newPetRoute,
+                        name: this.namePet,
+                        race: this.racePet,
+                        age: this.agePet,
+                        status: true,
+                        type: this.typePet,
+                        adoptedby: ''
+                    });
+                    this.newArrPets = this.pets.filter(e => e.status === true);
+                    this.typePet = '';
+                    this.namePet = '';
+                    this.racePet = '';
+                    this.agePet = '';
+                    this.newPetRoute = '';
+                    this.updateLocalStorage();
+                    this.mensaje("Mascota registrada correctamente", "success");
+                }else{//form input span validator
+                    if (this.typePet.length <= 0) {
+                        this.spaninputs[0].spinp = 1;
+                    }else{
+                        this.spaninputs[0].spinp = 0;
+                    }
+
+                    if (this.namePet.length <= 0) {
+                        this.spaninputs[1].spinp = 1;
+                    }else{
+                        this.spaninputs[1].spinp = 0;
+                    }
+
+                    if (this.racePet.length <= 0) {
+                        this.spaninputs[2].spinp = 1;
+                    }else{
+                        this.spaninputs[2].spinp = 0;
+                    }
+
+                    if (this.agePet <= 0) {
+                        this.spaninputs[3].spinp = 1;
+                    }else{
+                        this.spaninputs[3].spinp = 0;
+                    }
+                }
+        },
+        cancelbtn(){
+            this.typePet = '';
+            this.namePet = '';
+            this.racePet = '';
+            this.agePet = '';
+            this.newPetRoute = '';
+            this.spaninputs.forEach(e => e.spinp = 0);
+            this.mensaje("El registro se canceló correctamente", "success");
         }
     },
     created(){

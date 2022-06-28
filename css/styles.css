@@ -152,7 +152,6 @@ header{
     color: #000;
 }
 
-
 /* END adoptar CARDS */
 
 /*start admin table*/
@@ -161,6 +160,21 @@ header{
     font-size: 20px;
 }
 /*end admin table*/
+
+/*back button modal for image selection*/
+#modalseleccionar .back{
+    background-color: #ffb03a;
+    border: 0;
+    color: #000;
+    font-weight: bold;
+    transition: 0.4s all ease;
+}
+
+#modalseleccionar .back:hover{
+    background-color: #000;
+    color: #ffb03a;
+}
+/*end back button*/
 
 .form {
     width: 450px;
