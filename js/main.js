@@ -221,7 +221,7 @@ var app = new Vue({
                         this.spaninputs[2].spinp = 0;
                     }
 
-                    if (this.agePet <= 0) {
+                    if (this.agePet < 0) {
                         this.spaninputs[3].spinp = 1;
                     }else{
                         this.spaninputs[3].spinp = 0;
